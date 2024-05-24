@@ -55,8 +55,11 @@
 						<div class="col-md-3">
 							<input type="number" v-model="valor" class="form-control" placeholder="Precio">
 						</div>
-						<div class="col-md-3">
-							<button v-on:click="agregarProducto" @keyup.enter="agregarProducto" class="btn btn-primary">Agregar</button>
+						<div class="col-md-2">
+							<!-- Botones para Crear O Actualizar -->
+							<button v-if="!prodSelec" v-on:click="agregarProducto" @keyup.enter="agregarProducto" class="btn btn-primary">Agregar</button>
+							<button v-else v-on:click="actualizarProducto" @keyup.enter="actualizarProducto" class="btn btn-success">Actualizar</button>
+							<button v-if="prodSelec" v-on:click="cancelarEdicion" class="btn btn-secondary">Cancelar</button>
 						</div>
 					</div>
 

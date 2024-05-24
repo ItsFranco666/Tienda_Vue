@@ -18,12 +18,13 @@ const app = new Vue({
 		prodSelec: null
 	},
 	methods: {
-		limpiar(){
-			this.nuevo = ''
-            this.valor = ''			
+		limpiar() {
+			this.nuevo = '';
+			this.valor = '';
+			this.prodSelec = null;
 		},
 
-		agregarProducto(){
+		agregarProducto() {
 			if (this.nuevo !== '' && this.valor >= 0) {
 				this.productos.push({
 					id: this.productos.length + 1,
@@ -35,8 +36,7 @@ const app = new Vue({
 			this.limpiar();
 		},
 
-		eliminarProducto(item){
-			// *explicacion jsjs*
+		eliminarProducto(item) {
 			this.productos = this.productos.filter(p => p.id !== item.id);
 		},
 
@@ -44,12 +44,24 @@ const app = new Vue({
 			this.nuevo = item.nombre;
 			this.valor = item.precio;
 			this.prodSelec = item;
-		  },
+		},
+
+		actualizarProducto() {
+			if (this.nuevo !== '' && this.valor >= 0) {
+				this.prodSelec.nombre = this.nuevo;
+				this.prodSelec.precio = this.valor;
+			}
+			this.limpiar();
+		},
+
+		cancelarEdicion() {
+			this.limpiar();
+		}
 	},
 	computed: {
 		sumarProductos() {
 			return this.productos.length;
-		}, 
+		},
 
 		sumarStock() {
 			this.totalStock = 0
