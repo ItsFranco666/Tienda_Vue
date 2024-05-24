@@ -7,9 +7,9 @@ const app = new Vue({
 		Titulo: 'Productos',
 		menu: ['Inicio', 'Productos', 'Contacto'],
 		productos: [
-			{ id: 1, nombre: 'Ahuyama', precio: 5000, stock: 10 },
-			{ id: 2, nombre: 'Biblia', precio: 100, stock: 0 },
-			{ id: 3, nombre: 'Glock 19', precio: 400000, stock: 1 },
+			{ id: 1, nombre: 'Producto_Ejemplo1', precio: 5000, stock: 10 },
+			{ id: 2, nombre: 'Producto_Ejemplo2', precio: 1000, stock: 0 },
+			{ id: 3, nombre: 'Producto_Ejemplo3', precio: 40000, stock: 1 },
 		],
 		nuevo: '',
 		valor: '',
